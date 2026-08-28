@@ -12,7 +12,7 @@ section{scroll-margin-top:78px}
 <a class="brand" href="#home">SMART SHIELD <span>SDN</span></a>
 <button class="menu">☰</button>
 <div class="links">
-<a href="#home">Home</a><a href="#about">About</a><a href="#dashboard">Dashboard</a><a href="#code">Code</a><a href="#contact">Contact</a>
+<a href="#home">Home</a><a href="#about">About</a><a href="#try">Try Smart Shield</a><a href="#dashboard">Dashboard</a><a href="#code">Code</a><a href="#contact">Contact</a>
 </div></div></nav>
 
 <div id="home"><section class="hero"><div class="wrap hero-grid"><div><div class="kicker">AI-POWERED • REAL-TIME • EXPLAINABLE</div><h1>SMART<br><span class="cyan">SHIELD SDN</span></h1><p class="lead">An intelligent, privacy-preserving cyber-defense framework for DDoS detection, automated mitigation and human-readable security explanations.</p><div class="btns"><a class="btn primary" href="#dashboard">Open Dashboard</a><a class="btn secondary" href="#about">Explore Project</a></div></div><div class="visual"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="node att">⚠ ATTACKER</div><div class="node ai">✦ XAI ENGINE</div><div class="core"></div><div class="node vic">✓ VICTIM</div><div class="node ctl">RYU • OPENFLOW</div></div></div></section><section class="reveal"><div class="wrap"><div class="head"><div class="eyebrow">CORE WORKFLOW</div><h2>Detect → Block → Explain.</h2><p class="muted">Traffic moves from the lab network through feature extraction and ML detection, then into explainability, SDN mitigation and the victim alert layer.</p></div><div class="pipeline"><div class="step"><div class="num">1</div><b>Traffic</b><br><small>Mininet / OVS</small></div><div class="step"><div class="num">2</div><b>Features</b><br><small>CICFlowMeter</small></div><div class="step"><div class="num">3</div><b>Detect</b><br><small>XGBoost + LSTM</small></div><div class="step"><div class="num">4</div><b>Explain</b><br><small>SHAP + LIME</small></div><div class="step"><div class="num">5</div><b>Block</b><br><small>Ryu / OpenFlow</small></div><div class="step"><div class="num">6</div><b>Alert</b><br><small>Victim UI</small></div></div></div></section><section><div class="wrap metrics"><div class="metric"><div class="big">99.1%</div><span class="muted">Ensemble accuracy</span></div><div class="metric"><div class="big">98.9%</div><span class="muted">Ensemble F1</span></div><div class="metric"><div class="big">11 ms</div><span class="muted">Inference latency</span></div><div class="metric"><div class="big">25–30 ms</div><span class="muted">Average mitigation</span></div></div></section></div>
@@ -456,6 +456,46 @@ ATTACK_BUILDERS = {
 </pre></div><div style="height:18px"></div></div></section></div>
 <div id="contact"><section><div class="wrap"><div class="head"><div class="eyebrow">CONTACT</div><h1 style="font-size:clamp(2.8rem,6vw,5rem);letter-spacing:-3px">Let's talk<br><span class="cyan">cyber defense.</span></h1><p class="lead">For project demonstrations, academic collaboration or questions about Smart Shield SDN.</p></div><div class="grid2"><div class="card"><h3>Project Team</h3><p class="muted">Ankita • Chhaya • Tanisha Mahapatra</p><p class="muted">Under the guidance of Dr. Sarika Chaudhary</p><p class="muted">DPG Institute of Technology & Management<br>Gurugram, Haryana</p></div><div class="card"><div data-fs-success id="sent" class="muted" style="margin-bottom:10px"></div><div data-fs-error id="form-error" class="muted" style="color:#ff5364;margin-bottom:10px"></div><form id="contact-form" action="https://formspree.io/f/xeaqqeqj" method="POST"><input required name="name" placeholder="Your name" data-fs-field><input required type="email" name="email" placeholder="Email address" data-fs-field><input name="subject" placeholder="Subject" data-fs-field><textarea required name="message" placeholder="Your message" data-fs-field></textarea><button class="btn primary" type="submit" data-fs-submit-btn>Send Message</button></form></div></div></div></section></div>
 
+
+<section id="try" style="scroll-margin-top:78px">
+<div class="wrap">
+<div class="head"><div class="eyebrow">TRY SMART SHIELD</div><h2>Experience the defense — safely.</h2>
+<p class="muted">Run a contained browser simulation or learn how to run the project in your own authorized lab. The browser demo never sends real network packets.</p></div>
+<div class="grid2">
+<div class="card"><div class="eyebrow">BROWSER DEMO</div><h3>🧪 Interactive Defense Simulation</h3>
+<p class="muted">This is a simulation only: no sockets, no external target and no packet transmission.</p>
+<div class="statgrid" style="margin:18px 0">
+<div class="stat"><b id="uxPps" class="cyan">0</b><span>SIMULATED PKT/S</span></div>
+<div class="stat"><b id="uxThreat">BENIGN</b><span>CLASSIFICATION</span></div>
+<div class="stat"><b id="uxMit">READY</b><span>MITIGATION</span></div>
+<div class="stat"><b id="uxStep">0/5</b><span>DEMO STEP</span></div></div>
+<div class="chart" id="uxChart" style="height:150px"></div>
+<div class="btns"><button class="btn primary" id="startUx" type="button">▶ Start Safe Demo</button><button class="btn secondary" id="resetUx" type="button">↻ Reset</button></div>
+<p id="uxStatus" class="muted" style="margin-top:14px">Ready. Click Start Safe Demo.</p></div>
+<div class="card"><div class="eyebrow">CONTROLLED LAB</div><h3>💻 Run It Locally</h3>
+<p class="muted">For a genuine hands-on experience, run the supplied project only on your own private/authorized lab network.</p>
+<div style="display:grid;gap:10px;margin-top:17px">
+<div class="step" style="text-align:left"><b>01 · Prepare</b><br><small>Python + project dependencies</small></div>
+<div class="step" style="text-align:left"><b>02 · Controller</b><br><small>Start the Smart Shield controller</small></div>
+<div class="step" style="text-align:left"><b>03 · Victim</b><br><small>Start the alert/dashboard process</small></div>
+<div class="step" style="text-align:left"><b>04 · Authorized traffic</b><br><small>Use only an isolated lab target</small></div></div>
+<div class="btns"><a class="btn secondary" href="#code">View Project Code</a></div>
+<div class="badge danger" style="margin-top:12px">⚠ LAB ONLY — AUTHORIZED SYSTEMS</div></div></div>
+<div style="height:18px"></div>
+<div class="card"><div class="eyebrow">SAFE-DEMO TERMINAL</div>
+<pre id="uxTerminal">Smart Shield SDN — Safe Browser Simulation
+---------------------------------------------
+Status: READY
+Mode: SIMULATION ONLY
+Network transmission: DISABLED
+Real packets transmitted: 0
+
+Waiting to start...</pre></div>
+<div style="height:18px"></div>
+<div class="card"><div class="eyebrow">SAFETY BY DESIGN</div><h3>The website does not generate real attack traffic.</h3>
+<p class="muted">The interactive demo only changes simulated counters and UI states. Real packet-generation code remains a local lab component and should only be used on systems you own or are explicitly authorized to test.</p></div>
+</div></section>
+
 <footer><div class="wrap foot"><div><b>Smart Shield SDN</b><br>Detect. Block. Explain.</div><div>DPG Institute of Technology & Management<br>Gurugram, Haryana • B.Tech CSE (Data Science)</div></div></footer>
 <script>const m=document.querySelector(".menu"),l=document.querySelector(".links");if(m)m.onclick=()=>{l.style.display=l.style.display==="flex"?"none":"flex";l.style.position="absolute";l.style.right="16px";l.style.top="70px";l.style.flexDirection="column";l.style.background="#06101c";l.style.padding="15px";l.style.border="1px solid #27dcff33";l.style.borderRadius="12px"};
 document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
@@ -468,4 +508,23 @@ window.formspree = window.formspree || function () { (formspree.q = formspree.q 
 formspree('initForm', { formElement: '#contact-form', formId: 'xeaqqeqj' });
 </script>
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+<script>
+(function(){
+const s=document.getElementById('startUx'),r=document.getElementById('resetUx');
+if(!s)return;
+const p=document.getElementById('uxPps'),t=document.getElementById('uxThreat'),m=document.getElementById('uxMit'),n=document.getElementById('uxStep'),st=document.getElementById('uxStatus'),term=document.getElementById('uxTerminal'),ch=document.getElementById('uxChart');
+let timer=null,i=0;
+function draw(){const a=[18,28,37,49,61,76,88,97,84,66,48,31];ch.innerHTML=a.slice(0,Math.max(1,Math.min(i+1,a.length))).map(v=>'<i style="height:'+v+'%;flex:1;background:linear-gradient(#27dcff,#274b83);border-radius:5px 5px 1px 1px"></i>').join('')}
+function reset(){clearInterval(timer);timer=null;i=0;draw();p.textContent='0';t.textContent='BENIGN';t.style.color='';m.textContent='READY';m.style.color='';n.textContent='0/5';st.textContent='Ready. Click Start Safe Demo.';term.textContent='Smart Shield SDN — Safe Browser Simulation\\n---------------------------------------------\\nStatus: READY\\nMode: SIMULATION ONLY\\nNetwork transmission: DISABLED\\nReal packets transmitted: 0\\n\\nWaiting to start...';s.disabled=false;s.textContent='▶ Start Safe Demo'}
+function tick(){i++;draw();p.textContent=[35,72,145,310,620,850][Math.min(i-1,5)];
+if(i===1){n.textContent='1/5';st.textContent='Monitoring simulated flow metadata...';term.textContent+='\\n[DEMO] Flow monitoring started'}
+if(i===2){n.textContent='2/5';st.textContent='Simulated traffic rate rising...';term.textContent+='\\n[DEMO] Simulated traffic increased'}
+if(i===3){n.textContent='3/5';t.textContent='SYN FLOOD';t.style.color='#ff5364';st.textContent='Model classification: SYN Flood (simulated).';term.textContent+='\\n[DEMO] Classification: SYN FLOOD'}
+if(i===4){n.textContent='4/5';m.textContent='MITIGATING';m.style.color='#ffd52f';st.textContent='Simulating an OpenFlow mitigation decision...';term.textContent+='\\n[DEMO] XAI explanation generated\\n[DEMO] OpenFlow DROP decision simulated'}
+if(i>=5){n.textContent='5/5';m.textContent='PROTECTED';m.style.color='#73f56a';st.textContent='✓ Simulation complete — victim protected.';term.textContent+='\\n[DEMO] Victim protected\\n\\nReal packets transmitted: 0';clearInterval(timer);timer=null;s.disabled=false;s.textContent='▶ Run Again'}}
+s.onclick=()=>{reset();s.disabled=true;s.textContent='Running…';timer=setInterval(tick,850)};r.onclick=reset;draw();
+})();
+</script>
+
 </body></html>
