@@ -454,7 +454,7 @@ ATTACK_BUILDERS = {
 
 
 </pre></div><div style="height:18px"></div></div></section></div>
-<div id="contact"><section><div class="wrap"><div class="head"><div class="eyebrow">CONTACT</div><h1 style="font-size:clamp(2.8rem,6vw,5rem);letter-spacing:-3px">Let's talk<br><span class="cyan">cyber defense.</span></h1><p class="lead">For project demonstrations, academic collaboration or questions about Smart Shield SDN.</p></div><div class="grid2"><div class="card"><h3>Project Team</h3><p class="muted">Ankita • Chhaya • Tanisha Mahapatra</p><p class="muted">Under the guidance of Dr. Sarika Chaudhary</p><p class="muted">DPG Institute of Technology & Management<br>Gurugram, Haryana</p></div><div class="card"><form onsubmit="event.preventDefault();document.getElementById('sent').textContent='✓ Message prepared successfully';"><input required placeholder="Your name"><input required type="email" placeholder="Email address"><input placeholder="Subject"><textarea required placeholder="Your message"></textarea><button class="btn primary">Send Message</button><div id="sent" class="muted"></div></form></div></div></div></section></div>
+<div id="contact"><section><div class="wrap"><div class="head"><div class="eyebrow">CONTACT</div><h1 style="font-size:clamp(2.8rem,6vw,5rem);letter-spacing:-3px">Let's talk<br><span class="cyan">cyber defense.</span></h1><p class="lead">For project demonstrations, academic collaboration or questions about Smart Shield SDN.</p></div><div class="grid2"><div class="card"><h3>Project Team</h3><p class="muted">Ankita • Chhaya • Tanisha Mahapatra</p><p class="muted">Under the guidance of Dr. Sarika Chaudhary</p><p class="muted">DPG Institute of Technology & Management<br>Gurugram, Haryana</p></div><div class="card"><div data-fs-success id="sent" class="muted" style="margin-bottom:10px"></div><div data-fs-error id="form-error" class="muted" style="color:#ff5364;margin-bottom:10px"></div><form id="contact-form" action="https://formspree.io/f/xeaqqeqj" method="POST"><input required name="name" placeholder="Your name" data-fs-field><input required type="email" name="email" placeholder="Email address" data-fs-field><input name="subject" placeholder="Subject" data-fs-field><textarea required name="message" placeholder="Your message" data-fs-field></textarea><button class="btn primary" type="submit" data-fs-submit-btn>Send Message</button></form></div></div></div></section></div>
 
 <footer><div class="wrap foot"><div><b>Smart Shield SDN</b><br>Detect. Block. Explain.</div><div>DPG Institute of Technology & Management<br>Gurugram, Haryana • B.Tech CSE (Data Science)</div></div></footer>
 <script>const m=document.querySelector(".menu"),l=document.querySelector(".links");if(m)m.onclick=()=>{l.style.display=l.style.display==="flex"?"none":"flex";l.style.position="absolute";l.style.right="16px";l.style.top="70px";l.style.flexDirection="column";l.style.background="#06101c";l.style.padding="15px";l.style.border="1px solid #27dcff33";l.style.borderRadius="12px"};
@@ -462,4 +462,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',
   const el=document.querySelector(a.getAttribute('href')); if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}
 }));
 </script>
+
+<script>
+window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+formspree('initForm', { formElement: '#contact-form', formId: 'xeaqqeqj' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body></html>
